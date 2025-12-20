@@ -119,6 +119,16 @@ export default function GuidePage() {
                                                         기재 예시: 김OO -3(생), 박OO +2
                                                     </div>
                                                 </div>
+
+                                                <div className="bg-amber-50 rounded-lg p-3 border border-amber-100/50">
+                                                    <h5 className="flex items-center gap-1.5 text-xs font-bold text-amber-800 mb-1.5">
+                                                        <span className="text-sm">💡</span> 배정에 미치는 영향
+                                                    </h5>
+                                                    <p className="text-[11px] leading-relaxed text-amber-900/80 break-keep">
+                                                        <strong>점수 총점/평균 균등화</strong>: 알고리즘은 성적뿐만 아니라 <strong>생활지도 점수의 합계</strong>도 모든 반이 비슷해지도록 배정합니다.<br />
+                                                        이를 통해 특정 반에 생활지도가 어려운 학생이 쏠리거나, 리더가 없는 반이 생기는 문제를 **원천적으로 방지**합니다.
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </CardContent>
