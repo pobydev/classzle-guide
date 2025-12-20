@@ -453,7 +453,7 @@ export default function GuidePage() {
                                             사용 중 오류가 발생하거나 기능 제안이 있으시면<br />
                                             언제든 개발팀으로 연락 주시기 바랍니다.
                                         </p>
-                                        <Badge variant="secondary" className="text-[10px] font-medium">Contact: admin@classzle.io</Badge>
+                                        <Badge variant="secondary" className="text-[10px] font-medium">Contact: pobydev@gmail.com</Badge>
                                     </div>
                                 </div>
                             </div>

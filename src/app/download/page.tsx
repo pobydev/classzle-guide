@@ -25,12 +25,12 @@ export default function DownloadPage() {
                             </div>
 
                             <div className="text-left mb-8">
-                                <div className="text-3xl font-bold text-slate-900">v0.1.4</div>
+                                <div className="text-3xl font-bold text-slate-900">v1.0.0</div>
                                 <div className="text-sm text-slate-500 mt-1">2025년 12월 20일 배포</div>
                             </div>
 
                             <a
-                                href="https://github.com/your-username/classzle/releases/latest"
+                                href="https://github.com/pobydev/Classzle/releases/download/v1.0.0/Classzle.Setup.1.0.0.exe"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg shadow-md hover:bg-indigo-700 hover:scale-[1.02] transition flex items-center justify-center gap-2"
