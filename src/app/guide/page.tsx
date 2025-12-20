@@ -107,11 +107,11 @@ export default function GuidePage() {
                                                             <span className="font-bold text-indigo-600">+1 ~ +2</span>
                                                         </div>
                                                         <div className="flex justify-between border-b border-border pb-1.5">
-                                                            <span className="font-medium text-slate-700">생활지도 주의 (반 배정 참고)</span>
+                                                            <span className="font-medium text-slate-700">행동 특성상 분산 필요 (수업방해 등)</span>
                                                             <span className="font-bold text-slate-700">-1 ~ -3</span>
                                                         </div>
                                                         <div className="flex justify-between">
-                                                            <span className="font-medium text-slate-600">정서 배려 필요 (교우관계 등)</span>
+                                                            <span className="font-medium text-slate-600">심리적/정서적 지원 필요 (우울, 교우관계 등)</span>
                                                             <span className="font-bold text-slate-600">-1 ~ -3</span>
                                                         </div>
                                                     </div>
