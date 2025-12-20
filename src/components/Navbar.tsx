@@ -22,9 +22,7 @@ export default function Navbar() {
                                 <h1 className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">
                                     Classzle
                                 </h1>
-                                <Badge variant="outline" className="text-[10px] h-fit px-1.5 py-0 font-medium border-indigo-100 bg-indigo-50/50 text-indigo-600">
-                                    Beta
-                                </Badge>
+
                             </div>
                             <p className="text-[10px] font-medium text-muted-foreground leading-tight hidden sm:block whitespace-nowrap">
                                 완벽한 반 편성을 위한 마지막 조각
