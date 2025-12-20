@@ -10,7 +10,7 @@ export default function Footer() {
                         </p>
                     </div>
                     <div className="flex space-x-6">
-                        <a href="https://github.com/your-username/classzle" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-600 transition">
+                        <a href="https://github.com/pobydev/Classzle" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-600 transition">
                             GitHub
                         </a>
                         <a href="/guide" className="text-gray-400 hover:text-indigo-600 transition">
