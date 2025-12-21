@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Classzle - The Final Piece for Perfect Class Assignments',
+  title: 'Classzle - 완벽한 반 편성을 위한 마지막 조각',
   description: 'Smart class assignment helper for teachers.',
 };
 

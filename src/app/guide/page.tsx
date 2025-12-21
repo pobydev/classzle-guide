@@ -80,6 +80,10 @@ export default function GuidePage() {
                                                     <ul className="text-xs space-y-2 text-muted-foreground">
                                                         <li className="flex gap-2">
                                                             <span className="text-indigo-500">•</span>
+                                                            <span><strong>생활지도 점수:</strong> 각 학생을 리더형(+1~+2), 행동형(-1~-3), 정서형(-1~-3)으로 분류 (오른쪽 예시 참고)</span>
+                                                        </li>
+                                                        <li className="flex gap-2">
+                                                            <span className="text-indigo-500">•</span>
                                                             <span><strong>분리/동반 관계:</strong> 학폭, 관계 불화, 도움반 도우미 등</span>
                                                         </li>
                                                         <li className="flex gap-2">
@@ -393,7 +397,10 @@ export default function GuidePage() {
                                                 <div className="text-xs leading-relaxed">
                                                     <p className="font-bold text-foreground mb-1">신규 배정 및 현재 배정 수정</p>
                                                     <p className="text-muted-foreground">
-                                                        <strong>[신규 배정]</strong>은 완전히 새로운 배정안을, <strong>[현재 배정 수정]</strong>은 현재 상태에서 제약 조건을 더 세밀하게 맞추는 작업을 수행합니다.
+                                                        <strong>[신규 배정]</strong>은 완전히 새로운 배정안을 생성합니다. <strong>[현재 배정 수정]</strong>은 현재 배정을 유지하면서 불균형을 교정합니다.
+                                                    </p>
+                                                    <p className="text-primary mt-2">
+                                                        <span className="flex"><span>💡&nbsp;</span><span>팁: 더 이상 변경이 없을 때까지 [현재 배정 수정] 버튼을 여러 번 클릭하세요!</span></span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -502,8 +509,8 @@ export default function GuidePage() {
                                     <CardContent className="text-[11px] text-muted-foreground leading-relaxed pt-4">
                                         두 가지 방법이 있습니다.
                                         <ul className="list-disc list-inside mt-1 space-y-0.5 ml-1">
-                                            <li><strong>엑셀 입력:</strong> 양식에서 셀을 클릭해 드롭다운으로 항목(예: 리더형, 요주의 등)을 선택하여 일괄 입력할 수 있습니다.</li>
-                                            <li><strong>직접 수정:</strong> [1. 기초 자료 설정] 탭의 학생 명단에서 <strong>[수정]</strong> 버튼을 눌러 개별적으로 점수나 유형을 추가/변경할 수 있습니다.</li>
+                                            <li className="flex gap-1"><span className="shrink-0"><strong>엑셀 입력:</strong></span><span>양식에서 셀을 클릭해 드롭다운으로 항목(예: 리더형, 요주의 등)을 선택하여 일괄 입력할 수 있습니다.</span></li>
+                                            <li className="flex gap-1"><span className="shrink-0"><strong>직접 수정:</strong></span><span>[1. 기초 자료 설정] 탭의 학생 명단에서 <strong>[수정]</strong> 버튼을 눌러 개별적으로 점수나 유형을 추가/변경할 수 있습니다.</span></li>
                                         </ul>
                                     </CardContent>
                                 </Card>
@@ -542,7 +549,10 @@ export default function GuidePage() {
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="text-[11px] text-muted-foreground leading-relaxed pt-4">
-                                        <strong>[신규 배정]</strong>은 처음 시작하거나, 조건 변경 후 완전히 새로 짤 때 사용합니다. <strong>[현재 배정 수정]</strong>은 학생 몇 명을 수동으로 옮긴 뒤, 나머지 학생들만 재배치하여 조건을 맞추고 싶을 때 유용합니다.
+                                        <strong>[신규 배정]</strong>은 처음 시작하거나, 조건 변경 후 완전히 새로 짤 때 사용합니다. <strong>[현재 배정 수정]</strong>은 기존 배정을 유지하면서 생활지도 학생 균형을 조정합니다.
+                                        <p className="text-primary mt-2">
+                                            <span className="flex"><span>💡&nbsp;</span><span>팁: 더 이상 변경이 없을 때까지 [현재 배정 수정] 버튼을 여러 번 클릭하세요!</span></span>
+                                        </p>
                                     </CardContent>
                                 </Card>
 

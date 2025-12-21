@@ -21,11 +21,11 @@ export default function DownloadPage() {
                         <div className="bg-slate-50 rounded-2xl p-8 max-w-md mx-auto border border-slate-200">
                             <div className="flex justify-between items-center mb-6">
                                 <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">최신 버전</span>
-                                <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">안정화</span>
+                                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">최신</span>
                             </div>
 
                             <div className="text-left mb-8">
-                                <div className="text-3xl font-bold text-slate-900">v1.0.0</div>
+                                <div className="text-3xl font-bold text-slate-900">v1.1.0</div>
                                 <div className="text-sm text-slate-500 mt-1">2025년 12월 20일 배포</div>
                             </div>
 
@@ -44,16 +44,16 @@ export default function DownloadPage() {
                             </p>
                         </div>
 
-                        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left max-w-2xl mx-auto">
-                            <div className="flex gap-3">
+                        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                            <div className="flex gap-3 justify-center">
                                 <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
                                 <span className="text-sm text-slate-600">철저한 개인정보 보호</span>
                             </div>
-                            <div className="flex gap-3">
+                            <div className="flex gap-3 justify-center">
                                 <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
                                 <span className="text-sm text-slate-600">오프라인 지원</span>
                             </div>
-                            <div className="flex gap-3">
+                            <div className="flex gap-3 justify-center">
                                 <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
                                 <span className="text-sm text-slate-600">완전 무료</span>
                             </div>
