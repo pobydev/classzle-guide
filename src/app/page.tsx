@@ -156,7 +156,7 @@ export default function Home() {
                             src={slide.image}
                             alt={slide.title}
                             fill
-                            className="object-contain" // 전체 다 보이게 (잘림 방지)
+                            className="object-contain object-top" // 위로 붙여서 텍스트 오버레이에 가려지지 않게 함
                             unoptimized={slide.image.endsWith('.gif')}
                           />
                         </div>
