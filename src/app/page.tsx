@@ -148,7 +148,7 @@ export default function Home() {
                 {slides.map((slide, index) => (
                   <div key={index} className="w-full flex-shrink-0 flex flex-col h-full bg-slate-100">
                     {/* Image Area */}
-                    <div className={`flex-1 flex items-center justify-center ${slide.color} relative group overflow-hidden`}>
+                    <div className={`flex-1 flex items-center justify-center ${slide.image ? 'bg-slate-100' : slide.color} relative group overflow-hidden`}>
                       {slide.image ? (
                         <div className="relative w-full h-full">
                           <Image
@@ -156,7 +156,7 @@ export default function Home() {
                             src={slide.image}
                             alt={slide.title}
                             fill
-                            className="object-cover" // 꽉 채우기
+                            className="object-contain" // 전체 다 보이게 (잘림 방지)
                             unoptimized={slide.image.endsWith('.gif')}
                           />
                         </div>
