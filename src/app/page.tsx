@@ -140,7 +140,7 @@ export default function Home() {
 
           <div className="relative max-w-5xl mx-auto">
             {/* Carousel Window */}
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-slate-200 aspect-[16/10] bg-slate-50">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-slate-200 aspect-square md:aspect-[16/11] bg-slate-50">
               <div
                 className="flex transition-transform duration-500 ease-in-out h-full"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
