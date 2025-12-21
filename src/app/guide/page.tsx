@@ -652,7 +652,11 @@ export default function GuidePage() {
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="text-[11px] text-muted-foreground leading-relaxed pt-4">
-                                        기본적인 확인은 가능하지만, 대량의 엑셀 데이터 붙여넣기와 정교한 클릭 조정 작업을 위해 <strong>컴퓨터(데스크톱/노트북) 환경</strong>에서 사용하시는 것이 가장 좋습니다.
+                                        <h3 className="font-bold text-slate-900 mb-2">Q. 태블릿이나 모바일에서도 사용 가능한가요?</h3>
+                                        <p className="text-slate-600">
+                                            <strong>사용할 수 없습니다.</strong> Classzle은 <strong>Windows 운영체제(Windows 10 이상) 전용 데스크톱 프로그램</strong>입니다.<br />
+                                            안드로이드 태블릿, 아이패드, 스마트폰, 맥(Mac) 등에서는 실행되지 않으니 반드시 Windows PC(데스크톱/노트북)에서 사용해 주세요.
+                                        </p>
                                     </CardContent>
                                 </Card>
                             </div>
