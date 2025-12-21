@@ -57,33 +57,7 @@ export default function DownloadPage() {
                             </div>
                         </div>
 
-                        {/* 샘플 데이터 섹션 */}
-                        <div className="mt-16 pt-10 border-t border-slate-100">
-                            <h2 className="text-xl font-bold text-slate-800 mb-6">
-                                궁금하신가요? 샘플 파일로 먼저 테스트해보세요
-                            </h2>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <a
-                                    href="/samples/sample_data_basic.xlsx"
-                                    className="px-6 py-3 bg-white border border-slate-200 text-slate-600 rounded-xl font-medium hover:bg-slate-50 hover:border-indigo-200 hover:text-indigo-600 transition flex items-center justify-center gap-2"
-                                    download
-                                >
-                                    <Download className="w-4 h-4" />
-                                    양식 A (기본) 다운로드
-                                </a>
-                                <a
-                                    href="/samples/sample_data_preassigned.xlsx"
-                                    className="px-6 py-3 bg-white border border-slate-200 text-slate-600 rounded-xl font-medium hover:bg-slate-50 hover:border-indigo-200 hover:text-indigo-600 transition flex items-center justify-center gap-2"
-                                    download
-                                >
-                                    <Download className="w-4 h-4" />
-                                    양식 B (기배정) 다운로드
-                                </a>
-                            </div>
-                            <p className="text-sm text-slate-400 mt-4">
-                                * 가상의 인물들로 구성된 테스트용 데이터입니다.
-                            </p>
-                        </div>
+
                     </div>
                 </div>
             </div>

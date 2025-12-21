@@ -74,18 +74,34 @@ export default function GuidePage() {
                                         </div>
                                     </CardHeader>
                                     <CardContent className="pt-6">
-                                        <div className="mb-6 p-4 bg-blue-50/50 border border-blue-100 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                                            <div className="text-xs sm:text-sm text-blue-900 leading-relaxed">
-                                                <span className="font-bold flex items-center gap-1.5"><FileSpreadsheet className="w-3.5 h-3.5 text-blue-600" />테스트용 데이터가 필요하신가요?</span>
-                                                가상의 인물들(애니메이션 캐릭터 등)로 구성된 샘플 엑셀 파일을 다운로드하여 미리 연습해보세요.
+                                        <div className="mb-6 p-5 bg-blue-50/50 border border-blue-100 rounded-lg flex flex-col gap-4">
+                                            <div className="flex items-start gap-2">
+                                                <FileSpreadsheet className="w-5 h-5 text-blue-600 mt-0.5" />
+                                                <div className="space-y-1">
+                                                    <h4 className="font-bold text-blue-900 text-sm">Classzle이 어떻게 작동하는지 궁금하신가요?</h4>
+                                                    <p className="text-xs text-blue-700/80 leading-relaxed">
+                                                        * 가상의 인물들로 구성된 샘플 파일로 먼저 테스트해보세요.
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <Link
-                                                href="/download"
-                                                className="text-[11px] px-3 py-1.5 bg-white border border-blue-200 text-blue-700 font-bold rounded-md hover:bg-blue-50 transition shrink-0 shadow-sm flex items-center gap-1.5"
-                                            >
-                                                <Download className="w-3 h-3" />
-                                                샘플 받으러 가기
-                                            </Link>
+                                            <div className="flex flex-wrap gap-2 pl-7">
+                                                <a
+                                                    href="/samples/sample_data_basic.xlsx"
+                                                    download="Classzle_양식A_기본.xlsx"
+                                                    className="text-xs px-3 py-2 bg-white border border-blue-200 text-blue-700 font-bold rounded-md hover:bg-blue-50 transition shadow-sm flex items-center gap-1.5"
+                                                >
+                                                    <Download className="w-3.5 h-3.5" />
+                                                    양식 A (기본) 다운로드
+                                                </a>
+                                                <a
+                                                    href="/samples/sample_data_preassigned.xlsx"
+                                                    download="Classzle_양식B_기배정.xlsx"
+                                                    className="text-xs px-3 py-2 bg-white border border-blue-200 text-blue-700 font-bold rounded-md hover:bg-blue-50 transition shadow-sm flex items-center gap-1.5"
+                                                >
+                                                    <Download className="w-3.5 h-3.5" />
+                                                    양식 B (기배정) 다운로드
+                                                </a>
+                                            </div>
                                         </div>
 
                                         <div className="grid gap-8 md:grid-cols-2">
@@ -95,15 +111,23 @@ export default function GuidePage() {
                                                     <ul className="text-xs space-y-2 text-muted-foreground">
                                                         <li className="flex gap-2">
                                                             <span className="text-indigo-500">•</span>
+                                                            <span><strong>기준 성적:</strong> 나이스(NEIS)에서 산출된 석차연명부 상의 총점 (또는 석차)</span>
+                                                        </li>
+                                                        <li className="flex gap-2">
+                                                            <span className="text-indigo-500">•</span>
                                                             <span><strong>생활지도 점수:</strong> 각 학생을 리더형(+1~+2), 행동형(-1~-3), 정서형(-1~-3)으로 분류 (오른쪽 예시 참고)</span>
                                                         </li>
                                                         <li className="flex gap-2">
                                                             <span className="text-indigo-500">•</span>
-                                                            <span><strong>분리/동반 관계:</strong> 학폭, 관계 불화, 도움반 도우미 등</span>
+                                                            <span><strong>분리/동반 관계:</strong> 학폭, 관계 불화, 도움반 도우미, 쌍둥이 등</span>
                                                         </li>
                                                         <li className="flex gap-2">
                                                             <span className="text-indigo-500">•</span>
                                                             <span><strong>기타 메모:</strong> 전출 예정자 및 특수학급 학생 명단</span>
+                                                        </li>
+                                                        <li className="flex gap-2">
+                                                            <span className="text-indigo-400 font-bold text-[10px] bg-indigo-50 px-1 py-0.5 rounded">Check</span>
+                                                            <span className="text-indigo-400"><strong>생년월일:</strong> 학교 명렬표 서식 그대로 <strong>붙여넣기 편하도록 열을 만들어 두었을 뿐</strong>, 알고리즘엔 반영되지 않으니 비워두셔도 됩니다.</span>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -210,8 +234,8 @@ export default function GuidePage() {
                                                         <span>점수와 석차를 모두 인식합니다. (알고리즘이 자동으로 격차 분석)</span>
                                                     </li>
                                                     <li className="flex gap-2">
-                                                        <span className="text-primary font-bold whitespace-nowrap shrink-0">생년월일:</span>
-                                                        <span>'YYYY.MM.DD.' 형식을 권장하지만 유연한 파싱을 지원합니다.</span>
+                                                        <span className="text-primary font-bold whitespace-nowrap shrink-0">생년월일(선택):</span>
+                                                        <span>양식 B의 생년월일은 <strong>학교 명렬표 서식을 유지하기 위한 것</strong>일 뿐, 알고리즘에는 영향을 주지 않으므로 비워두셔도 무방합니다.</span>
                                                     </li>
 
                                                 </ul>
