@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import GuideSidebar from '@/components/GuideSidebar';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -73,6 +74,20 @@ export default function GuidePage() {
                                         </div>
                                     </CardHeader>
                                     <CardContent className="pt-6">
+                                        <div className="mb-6 p-4 bg-blue-50/50 border border-blue-100 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                                            <div className="text-xs sm:text-sm text-blue-900 leading-relaxed">
+                                                <span className="font-bold flex items-center gap-1.5"><FileSpreadsheet className="w-3.5 h-3.5 text-blue-600" />테스트용 데이터가 필요하신가요?</span>
+                                                가상의 인물들(애니메이션 캐릭터 등)로 구성된 샘플 엑셀 파일을 다운로드하여 미리 연습해보세요.
+                                            </div>
+                                            <Link
+                                                href="/download"
+                                                className="text-[11px] px-3 py-1.5 bg-white border border-blue-200 text-blue-700 font-bold rounded-md hover:bg-blue-50 transition shrink-0 shadow-sm flex items-center gap-1.5"
+                                            >
+                                                <Download className="w-3 h-3" />
+                                                샘플 받으러 가기
+                                            </Link>
+                                        </div>
+
                                         <div className="grid gap-8 md:grid-cols-2">
                                             <div className="space-y-5">
                                                 <div>
