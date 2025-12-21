@@ -26,7 +26,7 @@ export default function DownloadPage() {
 
                             <div className="text-left mb-8">
                                 <div className="text-3xl font-bold text-slate-900">v1.1.0</div>
-                                <div className="text-sm text-slate-500 mt-1">2025년 12월 20일 배포</div>
+                                <div className="text-sm text-slate-500 mt-1">2025년 12월 21일 배포</div>
                             </div>
 
                             <a
