@@ -30,7 +30,7 @@ export default function DownloadPage() {
                             </div>
 
                             <a
-                                href="https://github.com/pobydev/Classzle/releases/latest/download/Classzle%20Setup%201.1.0.exe"
+                                href="https://github.com/pobydev/Classzle/releases/latest/download/Classzle.Setup.1.1.0.exe"
                                 className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg shadow-md hover:bg-indigo-700 hover:scale-[1.02] transition flex items-center justify-center gap-2"
                             >
                                 <Download className="w-5 h-5" />
