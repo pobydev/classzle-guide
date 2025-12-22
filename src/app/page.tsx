@@ -2,11 +2,19 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Download, Calculator, Users, FileSpreadsheet, CheckCircle2, ChevronLeft, ChevronRight, ShieldCheck, MousePointerClick, BarChart3 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, Calculator, Users, FileSpreadsheet, CheckCircle2, ShieldCheck, MousePointerClick, BarChart3, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 export default function Home() {
+  const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -14,41 +22,82 @@ export default function Home() {
       title: "1. 간편한 입력",
       desc: "엑셀 명렬표 그대로, 복사해서 붙여넣기만 하세요.",
       image: "/images/slide1.gif",
-      duration: 8000,
       color: "bg-blue-100"
     },
     {
       title: "2. 정밀한 조건 설정",
       desc: "성적, 성비는 기본. '분리 배정'이나 '특별 지도' 학생도 꼼꼼하게 고려합니다.",
       image: "/images/slide2.gif",
-      duration: 8000,
       color: "bg-indigo-100"
     },
     {
       title: "3. 결과 확인",
       desc: "복잡한 계산은 눈깜짝할 새에. 제안된 배정안을 눈으로 확인하세요.",
       image: "/images/slide3.gif",
-      duration: 8000,
       color: "bg-violet-100"
     },
     {
       title: "4. 시뮬레이션",
       desc: "마우스로 쓱- 옮겨보세요. 실시간으로 밸런스가 다시 계산됩니다.",
       image: "/images/slide4.gif",
-      duration: 8000,
       color: "bg-purple-100"
+    },
+    {
+      title: "5. 리포트 출력",
+      desc: "조건 성취 현황과 변경 이력을 한눈에. 깔끔한 보고서로 바로 출력하세요.",
+      image: "/images/slide5.gif",
+      color: "bg-fuchsia-100"
     }
   ];
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const tweenNode = useCallback((emblaApi: CarouselApi, eventName?: string) => {
+    if (!emblaApi) return;
+    const engine = emblaApi.internalEngine();
+    const scrollProgress = emblaApi.scrollProgress();
+    const slidesInView = emblaApi.slidesInView();
+    const isScrollEvent = eventName === 'scroll';
 
-  // Auto-play carousel with variable duration
+    emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+      let diffToTarget = scrollSnap - scrollProgress;
+      const slidesInSnap = engine.slideRegistry[snapIndex];
+
+      slidesInSnap.forEach((slideIndex) => {
+        if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
+        if (engine.options.loop) {
+          engine.slideLooper.loopPoints.forEach((loopItem) => {
+            const target = loopItem.target();
+            if (slideIndex === loopItem.index && target !== 0) {
+              const sign = Math.sign(target);
+              if (sign === -1) diffToTarget = scrollSnap - (1 + scrollProgress);
+              if (sign === 1) diffToTarget = scrollSnap + (1 - scrollProgress);
+            }
+          });
+        }
+        const tweenValue = 1 - Math.abs(diffToTarget * 1.5);
+        const scale = Math.max(0.85, Math.min(1, tweenValue));
+        const opacity = Math.max(0.5, Math.min(1, tweenValue));
+        const blur = (1 - scale) * 10;
+        const slideNode = emblaApi.slideNodes()[slideIndex];
+        const slideInner = slideNode.querySelector('.slide-inner') as HTMLElement;
+        if (slideInner) {
+          slideInner.style.transform = `scale(${scale})`;
+          slideInner.style.opacity = `${opacity}`;
+          slideInner.style.filter = `blur(${blur}px)`;
+        }
+      });
+    });
+  }, []);
+
   useEffect(() => {
-    const currentDuration = slides[currentSlide].duration || 8000;
-    const timer = setTimeout(nextSlide, currentDuration);
-    return () => clearTimeout(timer);
-  }, [currentSlide]);
+    if (!api) return;
+    api.on("select", () => {
+      setCurrentSlide(api.selectedScrollSnap());
+    });
+    api.on('reInit', tweenNode);
+    api.on('scroll', tweenNode);
+    api.on('select', tweenNode);
+    tweenNode(api);
+  }, [api, tweenNode]);
 
   return (
     <div className="flex flex-col min-h-full">
@@ -138,73 +187,59 @@ export default function Home() {
             <p className="mt-4 text-slate-600">복잡한 과정은 덜어내고, 꼭 필요한 기능만 직관적으로 담았습니다.</p>
           </div>
 
-          <div className="relative max-w-5xl mx-auto">
-            {/* Carousel Window */}
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-slate-200 aspect-square md:aspect-[16/11] bg-slate-50">
-              <div
-                className="flex transition-transform duration-500 ease-in-out h-full"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          <div className="mt-8 relative">
+            <div className="max-w-[1200px] mx-auto">
+              <Carousel
+                setApi={setApi}
+                className="w-full"
+                opts={{ align: "center", loop: true }}
+                plugins={[Autoplay({ delay: 8000 })]}
               >
-                {slides.map((slide, index) => (
-                  <div key={index} className="w-full flex-shrink-0 flex flex-col h-full bg-slate-100">
-                    {/* Image Area */}
-                    <div className={`flex-1 flex items-center justify-center ${slide.image ? 'bg-slate-100' : slide.color} relative group overflow-hidden`}>
-                      {slide.image ? (
-                        <div className="relative w-full h-full">
-                          <Image
-                            key={`${slide.image}-${index}-${currentSlide === index}`} // 슬라이드 활성화 시 이미지 리마운트 -> GIF 재시작
-                            src={slide.image}
-                            alt={slide.title}
-                            fill
-                            className="object-contain object-top" // 위로 붙여서 텍스트 오버레이에 가려지지 않게 함
-                            unoptimized={slide.image.endsWith('.gif')}
-                          />
-                        </div>
-                      ) : (
-                        <div className="text-slate-400 text-lg font-medium flex flex-col items-center gap-4">
-                          <div className="w-24 h-24 rounded-full bg-white/50 flex items-center justify-center shadow-sm">
-                            <span className="text-4xl">📷</span>
+                <CarouselContent className="-ml-4 md:-ml-8">
+                  {slides.map((slide, index) => (
+                    <CarouselItem key={index} className="pl-4 md:pl-8 md:basis-2/3 lg:basis-3/5">
+                      <div className="slide-inner transition-all duration-500 ease-out h-full">
+                        <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-slate-200 aspect-square md:aspect-[16/13] bg-slate-50 h-full flex flex-col">
+                          <div className={`flex-1 flex items-center justify-center ${slide.image ? 'bg-slate-100' : slide.color} relative overflow-hidden`}>
+                            {slide.image ? (
+                              <div className="relative w-full h-full">
+                                <Image
+                                  key={`${slide.image}-${index}-${currentSlide === index ? 'active' : 'inactive'}`} // Key change forces remount -> restart GIF
+                                  src={slide.image}
+                                  alt={slide.title}
+                                  fill
+                                  className={`object-contain object-top ${currentSlide === index ? 'animate-in fade-in zoom-in-95 duration-300' : ''}`} // Visual cue for restart
+                                  unoptimized={slide.image.endsWith('.gif')}
+                                  priority={index <= 2} // Preload first few
+                                />
+                              </div>
+                            ) : (
+                              <div className="text-slate-400 text-lg font-medium flex flex-col items-center gap-4">
+                                <span>이미지 준비중</span>
+                              </div>
+                            )}
                           </div>
-                          <span>스크린샷 영역 {index + 1}</span>
-                          <span className="text-sm opacity-60">(추후 실제 이미지로 교체 예정)</span>
+                          <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm border-t border-slate-100 p-6 md:p-8">
+                            <h3 className="text-2xl font-bold text-slate-900 mb-2">{slide.title}</h3>
+                            <p className="text-slate-600 leading-relaxed text-lg break-keep">{slide.desc}</p>
+                          </div>
                         </div>
-                      )}
-
-                      {/* Text Overlay (Bottom) */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md p-8 border-t border-slate-200">
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">{slide.title}</h3>
-                        <p className="text-slate-600 text-lg">{slide.desc}</p>
                       </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevSlide}
-              className="absolute top-1/2 -left-6 md:-left-12 -translate-y-1/2 p-3 rounded-full bg-white shadow-lg text-slate-600 hover:text-indigo-600 hover:scale-110 transition-all border border-slate-100"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute top-1/2 -right-6 md:-right-12 -translate-y-1/2 p-3 rounded-full bg-white shadow-lg text-slate-600 hover:text-indigo-600 hover:scale-110 transition-all border border-slate-100"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </button>
-
-            {/* Dots */}
-            <div className="flex justify-center gap-3 mt-8">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${currentSlide === index ? 'bg-indigo-600 w-8' : 'bg-slate-300 hover:bg-slate-400'
-                    }`}
-                />
-              ))}
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="flex justify-center gap-3 mt-10">
+                  {slides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => api?.scrollTo(index)}
+                      className={`h-2.5 rounded-full transition-all duration-500 ${currentSlide === index ? "w-10 bg-indigo-600" : "w-2.5 bg-slate-200 hover:bg-indigo-300"
+                        }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </Carousel>
             </div>
           </div>
         </div>

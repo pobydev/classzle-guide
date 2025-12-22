@@ -59,7 +59,7 @@ export default function GuidePage() {
                                     </CardHeader>
                                     <CardContent className="space-y-4 text-sm leading-relaxed">
                                         <ul className="space-y-3 list-disc list-inside text-slate-700">
-                                            <li><strong className="text-indigo-900 font-bold">PC 환경 권장:</strong> 정교한 데이터 그리드와 드래그 앤 드롭 기능을 위해 <strong>데스크톱/노트북</strong> 사용을 강력히 권장합니다.</li>
+                                            <li><strong className="text-indigo-900 font-bold">PC 환경 필수:</strong> 방대한 데이터 시각화와 정밀한 클릭 조작을 위해 <strong>Windows 데스크톱/노트북</strong> 환경에서만 사용 가능합니다.</li>
                                             <li><strong className="text-indigo-900 font-bold">로컬 데이터 보안:</strong> 모든 데이터는 서버로 전송되지 않고 로컬 환경에만 저장됩니다. 작업 중간에 <strong>[작업 저장]</strong> 버튼을 눌러 프로젝트 이름을 정하고 저장하세요.</li>
                                         </ul>
                                     </CardContent>
@@ -235,7 +235,7 @@ export default function GuidePage() {
                                                     </li>
                                                     <li className="flex gap-2">
                                                         <span className="text-primary font-bold whitespace-nowrap shrink-0">생년월일(선택):</span>
-                                                        <span>양식 B의 생년월일은 <strong>학교 명렬표 서식을 유지하기 위한 것</strong>일 뿐, 알고리즘에는 영향을 주지 않으므로 비워두셔도 무방합니다.</span>
+                                                        <span>비워두셔도 무방합니다.</span>
                                                     </li>
 
                                                 </ul>
@@ -463,7 +463,7 @@ export default function GuidePage() {
                                                 <div className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center shrink-0 font-bold text-[10px]">4</div>
                                                 <div className="text-xs leading-relaxed">
                                                     <p className="font-bold text-foreground mb-1">최종 결과 출력 및 백업</p>
-                                                    <p className="text-muted-foreground"><strong>[결과 요약 리포트]</strong>로 균형도를 확인하고 <strong>[엑셀 다운로드]</strong>를 통해 최종 명렬표를 저장하세요. 전체 프로젝트 저장은 필수입니다.</p>
+                                                    <p className="text-muted-foreground"><strong>[결과 요약 리포트]</strong>에서 남녀 성비, 평균 성적, 생활지도 점수 합계의 불균형 지표와 주요 제약 조건(분리 배정 등) 준수 여부를 확인하고, <strong>[엑셀 다운로드]</strong>를 통해 최종 명렬표를 저장하세요.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -652,11 +652,7 @@ export default function GuidePage() {
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="text-[11px] text-muted-foreground leading-relaxed pt-4">
-                                        <h3 className="font-bold text-slate-900 mb-2">Q. 태블릿이나 모바일에서도 사용 가능한가요?</h3>
-                                        <p className="text-slate-600">
-                                            <strong>사용할 수 없습니다.</strong> Classzle은 <strong>Windows 운영체제(Windows 10 이상) 전용 데스크톱 프로그램</strong>입니다.<br />
-                                            안드로이드 태블릿, 아이패드, 스마트폰, 맥(Mac) 등에서는 실행되지 않으니 반드시 Windows PC(데스크톱/노트북)에서 사용해 주세요.
-                                        </p>
+                                        가능합니다. 단, <strong>Windows 운영체제(Windows 10 이상) 전용 데스크톱 프로그램</strong>이므로 안드로이드 태블릿, 아이패드, 스마트폰, 맥(Mac) 등에서는 실행되지 않습니다. 반드시 PC(데스크톱/노트북)에서 사용해 주세요.
                                     </CardContent>
                                 </Card>
                             </div>
