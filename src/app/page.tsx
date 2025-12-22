@@ -309,6 +309,12 @@ export default function Home() {
             <Download className="w-5 h-5" />
             Classzle 무료 다운로드
           </Link>
+          <div className="mt-12 text-xs text-slate-400 leading-relaxed break-keep max-w-2xl mx-auto border-t border-slate-100 pt-6">
+            <p>
+              ⚠️ <strong>안내:</strong> Classzle은 보조 도구일 뿐이며, 최종 반 편성의 확정 권한과 책임은 전적으로 담당 교사 및 학교에 있습니다.<br />
+              <strong>반드시 선생님의 꼼꼼한 검토와 학교 내부 심의를 거쳐 최종안을 확정하시기 바랍니다.</strong>
+            </p>
+          </div>
         </div>
       </section>
 
