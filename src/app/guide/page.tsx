@@ -74,103 +74,189 @@ export default function GuidePage() {
                                         </div>
                                     </CardHeader>
                                     <CardContent className="pt-6">
-                                        <div className="mb-6 p-5 bg-blue-50/50 border border-blue-100 rounded-lg flex flex-col gap-4">
-                                            <div className="flex items-start gap-2">
-                                                <FileSpreadsheet className="w-5 h-5 text-blue-600 mt-0.5" />
-                                                <div className="space-y-1">
-                                                    <h4 className="font-bold text-blue-900 text-sm">Classzle이 어떻게 작동하는지 궁금하신가요?</h4>
-                                                    <p className="text-xs text-blue-700/80 leading-relaxed">
-                                                        * 가상의 인물들로 구성된 샘플 파일로 먼저 테스트해보세요.
-                                                    </p>
+                                        <div className="mb-8 p-6 bg-slate-50 border border-slate-200 rounded-xl flex flex-col gap-4">
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center gap-3">
+                                                    <FileSpreadsheet className="w-5 h-5 text-indigo-600" />
+                                                    <h4 className="font-bold text-slate-900">도움이 되는 기초 자료 양식</h4>
+                                                </div>
+                                                <div className="flex gap-2">
+                                                    <a
+                                                        href="/samples/sample_data_basic.xlsx"
+                                                        download="Classzle_양식A_기본.xlsx"
+                                                        className="text-[11px] px-3 py-1.5 bg-white border border-slate-200 text-slate-700 font-bold rounded-md hover:bg-slate-50 transition shadow-sm flex items-center gap-1.5"
+                                                    >
+                                                        <Download className="w-3 h-3" />
+                                                        양식 A (기본)
+                                                    </a>
+                                                    <a
+                                                        href="/samples/sample_data_preassigned.xlsx"
+                                                        download="Classzle_양식B_기배정.xlsx"
+                                                        className="text-[11px] px-3 py-1.5 bg-white border border-slate-200 text-slate-700 font-bold rounded-md hover:bg-slate-50 transition shadow-sm flex items-center gap-1.5"
+                                                    >
+                                                        <Download className="w-3 h-3" />
+                                                        양식 B (기배정)
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div className="flex flex-wrap gap-2 pl-7">
-                                                <a
-                                                    href="/samples/sample_data_basic.xlsx"
-                                                    download="Classzle_양식A_기본.xlsx"
-                                                    className="text-xs px-3 py-2 bg-white border border-blue-200 text-blue-700 font-bold rounded-md hover:bg-blue-50 transition shadow-sm flex items-center gap-1.5"
-                                                >
-                                                    <Download className="w-3.5 h-3.5" />
-                                                    양식 A (기본) 다운로드
-                                                </a>
-                                                <a
-                                                    href="/samples/sample_data_preassigned.xlsx"
-                                                    download="Classzle_양식B_기배정.xlsx"
-                                                    className="text-xs px-3 py-2 bg-white border border-blue-200 text-blue-700 font-bold rounded-md hover:bg-blue-50 transition shadow-sm flex items-center gap-1.5"
-                                                >
-                                                    <Download className="w-3.5 h-3.5" />
-                                                    양식 B (기배정) 다운로드
-                                                </a>
+                                            <p className="text-[11px] text-slate-500 leading-relaxed">
+                                                * 실제 데이터를 입력하기 전, 가상의 데이터가 포함된 샘플 파일을 다운로드하여 Classzle의 기능을 미리 체험해 보세요.
+                                            </p>
+                                        </div>
+
+                                        <div className="grid gap-6 md:grid-cols-2 items-stretch">
+                                            <div className="flex flex-col gap-5">
+                                                <div className="flex-1 space-y-5">
+                                                    <div>
+                                                        <h4 className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">1. 데이터 수집 항목</h4>
+                                                        <ul className="text-xs space-y-2 text-muted-foreground">
+                                                            <li className="flex gap-2">
+                                                                <span className="text-indigo-500">•</span>
+                                                                <span><strong>기준 성적:</strong> 나이스(NEIS) 석차연명부 상의 총점 (또는 석차)</span>
+                                                            </li>
+                                                            <li className="flex gap-2 text-slate-900 font-medium">
+                                                                <span className="text-indigo-600">•</span>
+                                                                <span><strong>생활지도 점수:</strong> 리더형(+1~+2), 행동형(-1~-3), 정서형(-1~-3) 분류</span>
+                                                            </li>
+                                                            <li className="flex gap-2">
+                                                                <span className="text-indigo-500">•</span>
+                                                                <span><strong>분리/동반 관계:</strong> 학폭, 갈등, 도우미, 쌍둥이 등</span>
+                                                            </li>
+                                                            <li className="flex gap-2">
+                                                                <span className="text-indigo-500">•</span>
+                                                                <span><strong>기타 메모:</strong> 전출 예정자 및 특수학급 학생 명단, 전원 확인이 필요한 특이사항</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className="px-3 py-2 bg-amber-50 rounded-md border border-amber-100 flex gap-2">
+                                                        <span className="text-amber-600 font-bold text-[10px] uppercase shrink-0">Tip</span>
+                                                        <span className="text-amber-800 text-[11px] leading-relaxed"><strong>생년월일</strong>은 명렬표 구성용이며, 알고리즘 연산에는 사용되지 않으므로 생략 가능합니다.</span>
+                                                    </div>
+                                                </div>
+                                                <div className="bg-slate-900 text-slate-100 p-5 rounded-xl shadow-inner shrink-0 min-h-[140px] flex items-center">
+                                                    <div className="flex gap-4">
+                                                        <Lock className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
+                                                        <div className="space-y-2">
+                                                            <h5 className="text-xs font-bold text-white">철저한 오프라인 보안</h5>
+                                                            <p className="text-[11px] leading-relaxed text-slate-400 break-keep">
+                                                                학생을 향한 주관적 지표가 포함되므로, 파일 전송보다는 <strong>'종이 명렬표'</strong>로 직접 전달받아 입력하는 방식을 권장합니다. Classzle은 <strong>100% 무설치/오프라인 가동</strong>을 원칙으로 하며, 기입한 정보는 외부 서버에 절대 남지 않습니다.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex flex-col gap-4">
+                                                <h4 className="text-xs font-bold text-indigo-600 uppercase tracking-wider">2. 생활지도 점수 가이드</h4>
+                                                <div className="flex-1 bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100 overflow-hidden flex flex-col">
+                                                    <div className="p-4 flex-1 flex flex-col justify-center gap-1 text-[12px]">
+                                                        <div className="flex justify-between items-center">
+                                                            <span className="font-bold text-slate-800">모범 / 리더 (Leadership)</span>
+                                                            <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-100">+1 ~ +2</Badge>
+                                                        </div>
+                                                        <p className="text-[10px] text-slate-500">학급 분위기를 긍정적으로 이끌거나 리더십이 뛰어난 학생</p>
+                                                    </div>
+                                                    <div className="p-4 flex-1 flex flex-col justify-center gap-1 text-[12px]">
+                                                        <div className="flex justify-between items-center">
+                                                            <span className="font-bold text-slate-800">행동 특이 (Behavioral)</span>
+                                                            <Badge variant="outline" className="bg-rose-50 text-rose-700 border-rose-100">-1 ~ -3</Badge>
+                                                        </div>
+                                                        <p className="text-[10px] text-slate-500">지속적인 생활지도나 반별 분산 배치가 필수적인 학생</p>
+                                                    </div>
+                                                    <div className="p-4 flex-1 flex flex-col justify-center gap-1 text-[12px]">
+                                                        <div className="flex justify-between items-center">
+                                                            <span className="font-bold text-slate-800">심리 정서 (Emotional)</span>
+                                                            <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100">-1 ~ -3</Badge>
+                                                        </div>
+                                                        <p className="text-[10px] text-slate-500">주의 깊은 정서적 관리나 교우관계 배려가 필요한 학생</p>
+                                                    </div>
+                                                </div>
+                                                <div className="p-4 bg-slate-50 text-slate-600 rounded-xl border border-slate-200 shrink-0">
+                                                    <div className="text-[11px] font-bold mb-1 text-slate-800">작동 알고리즘:</div>
+                                                    <p className="text-xs font-medium leading-relaxed italic break-keep">
+                                                        "반별 <strong>생활지도 점수의 합(관리 난이도)</strong>이 서로 균등할수록,<br /> 선생님의 1년이 가장 공평하고 안전해집니다."
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div className="grid gap-8 md:grid-cols-2">
-                                            <div className="space-y-5">
-                                                <div>
-                                                    <h4 className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">1. 데이터 수집 항목</h4>
-                                                    <ul className="text-xs space-y-2 text-muted-foreground">
-                                                        <li className="flex gap-2">
-                                                            <span className="text-indigo-500">•</span>
-                                                            <span><strong>기준 성적:</strong> 나이스(NEIS)에서 산출된 석차연명부 상의 총점 (또는 석차)</span>
-                                                        </li>
-                                                        <li className="flex gap-2">
-                                                            <span className="text-indigo-500">•</span>
-                                                            <span><strong>생활지도 점수:</strong> 각 학생을 리더형(+1~+2), 행동형(-1~-3), 정서형(-1~-3)으로 분류 (오른쪽 예시 참고)</span>
-                                                        </li>
-                                                        <li className="flex gap-2">
-                                                            <span className="text-indigo-500">•</span>
-                                                            <span><strong>분리/동반 관계:</strong> 학폭, 관계 불화, 도움반 도우미, 쌍둥이 등</span>
-                                                        </li>
-                                                        <li className="flex gap-2">
-                                                            <span className="text-indigo-500">•</span>
-                                                            <span><strong>기타 메모:</strong> 전출 예정자 및 특수학급 학생 명단</span>
-                                                        </li>
-                                                        <li className="flex gap-2">
-                                                            <span className="text-indigo-400 font-bold text-[10px] bg-indigo-50 px-1 py-0.5 rounded">Check</span>
-                                                            <span className="text-indigo-400"><strong>생년월일:</strong> 학교 명렬표 서식 그대로 <strong>붙여넣기 편하도록 열을 만들어 두었을 뿐</strong>, 알고리즘엔 반영되지 않으니 비워두셔도 됩니다.</span>
-                                                        </li>
-                                                    </ul>
+                                        <div className="mt-12 p-8 bg-indigo-900 text-white rounded-2xl shadow-xl space-y-8 relative overflow-hidden">
+                                            {/* Decorative Background */}
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+                                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/10 rounded-full -ml-12 -mb-12 blur-xl"></div>
+
+                                            <div className="flex items-center gap-4 relative z-10">
+                                                <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                                    <LayoutGrid className="w-6 h-6 text-indigo-300" />
                                                 </div>
-                                                <div className="bg-indigo-50/50 p-3 rounded-lg border border-indigo-100/50">
-                                                    <div className="flex gap-2">
-                                                        <Lock className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
-                                                        <p className="text-[11px] leading-relaxed text-indigo-900">
-                                                            <strong>보안 강조:</strong> 학생을 향한 주관적 지표가 포함되므로, 파일 전송보다는 <strong>'종이 명렬표'</strong>로 직접 전달받아 입력하는 방식을 권장합니다.
-                                                        </p>
-                                                    </div>
+                                                <div>
+                                                    <h4 className="font-bold text-xl">Classzle의 핵심: '생활지도 총량제'</h4>
+                                                    <p className="text-sm text-indigo-200/80">데이터가 실전에서 어떻게 분산되는지 확인해 보세요.</p>
                                                 </div>
                                             </div>
 
-                                            <div className="space-y-3">
-                                                <h4 className="text-xs font-bold text-indigo-600 uppercase tracking-wider">2. 생활지도 점수화 예시</h4>
-                                                <div className="bg-muted/50 rounded-lg p-3 border border-border">
-                                                    <div className="space-y-2.5 text-[11px]">
-                                                        <div className="flex justify-between border-b border-border pb-1.5">
-                                                            <span className="font-medium">리더십 (회장감 등)</span>
-                                                            <span className="font-bold text-indigo-600">+1 ~ +2</span>
+                                            <div className="grid lg:grid-cols-2 gap-8 relative z-10 items-stretch">
+                                                <div className="flex flex-col gap-5">
+                                                    <p className="text-sm leading-relaxed text-indigo-100/90 break-keep">
+                                                        Classzle은 단순히 인원수만 맞추는 1차원적 배정을 거부합니다. 각 학생이 가진 고유한 영향력을 수치화하여, 모든 반의 <strong>'지도 업무 강도'</strong>를 과학적으로 일치시킵니다.
+                                                    </p>
+                                                    <div className="flex-1 grid grid-cols-2 gap-3">
+                                                        <div className="bg-indigo-500/10 p-5 pt-6 rounded-xl border border-indigo-400/20 flex flex-col justify-start">
+                                                            <div className="text-xs font-bold text-indigo-300 mb-2 flex items-center gap-1.5">
+                                                                <span className="w-1 h-1 rounded-full bg-indigo-400"></span>
+                                                                모범/리더 분산
+                                                            </div>
+                                                            <p className="text-[11px] leading-relaxed text-indigo-100/70">리더형 학생이 쏠리지 않도록 모든 반에 전략적으로 배치</p>
                                                         </div>
-                                                        <div className="flex justify-between border-b border-border pb-1.5">
-                                                            <span className="font-medium text-slate-700">행동 특성상 분산 필요 (수업방해 등)</span>
-                                                            <span className="font-bold text-slate-700">-1 ~ -3</span>
+                                                        <div className="bg-indigo-500/10 p-5 pt-6 rounded-xl border border-indigo-400/20 flex flex-col justify-start">
+                                                            <div className="text-xs font-bold text-rose-300 mb-2 flex items-center gap-1.5">
+                                                                <span className="w-1 h-1 rounded-full bg-rose-400"></span>
+                                                                행동/정서 균형
+                                                            </div>
+                                                            <p className="text-[11px] leading-relaxed text-indigo-100/70">지도가 필요한 학생을 분산하여 담당 교사의 부담을 평준화</p>
                                                         </div>
-                                                        <div className="flex justify-between">
-                                                            <span className="font-medium text-slate-600">심리적/정서적 지원 필요 (우울, 교우관계 등)</span>
-                                                            <span className="font-bold text-slate-600">-1 ~ -3</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="mt-3 bg-indigo-600 text-white p-2 rounded text-[10px] font-mono text-center">
-                                                        기재 예시: 김OO -3(생), 박OO +2
                                                     </div>
                                                 </div>
 
-                                                <div className="bg-amber-50 rounded-lg p-3 border border-amber-100/50">
-                                                    <h5 className="flex items-center gap-1.5 text-xs font-bold text-amber-800 mb-1.5">
-                                                        <span className="text-sm">💡</span> 배정에 미치는 영향
-                                                    </h5>
-                                                    <p className="text-[11px] leading-relaxed text-amber-900/80 break-keep">
-                                                        <strong>점수 총점/평균 균등화</strong>: 알고리즘은 성적뿐만 아니라 <strong>생활지도 점수의 합계</strong>도 모든 반이 비슷해지도록 배정합니다.<br />
-                                                        이를 통해 특정 반에 생활지도가 어려운 학생이 쏠리거나, 리더가 없는 반이 생기는 문제를 **원천적으로 방지**합니다.
-                                                    </p>
+                                                <div className="bg-white/5 rounded-xl p-6 border border-white/10 flex flex-col justify-between gap-6">
+                                                    <div className="space-y-4">
+                                                        <h5 className="text-xs font-bold text-indigo-300 flex items-center gap-2">
+                                                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                                                            실제 배정 예시 (4개 반 편성 시)
+                                                        </h5>
+                                                        <div className="space-y-3">
+                                                            <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
+                                                                <div className="flex flex-col gap-0.5">
+                                                                    <span className="text-[11px]">리더형 (+2점 2명, +1점 7명)</span>
+                                                                    <span className="text-[9px] text-indigo-300/60">총 9명 리더 배치</span>
+                                                                </div>
+                                                                <ArrowRight className="w-3 h-3 text-indigo-400" />
+                                                                <span className="text-[11px] font-bold">반별 2~3명 분산</span>
+                                                            </div>
+                                                            <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
+                                                                <div className="flex flex-col gap-0.5">
+                                                                    <span className="text-[11px]">행동형 (-2점 3명, -1점 2명)</span>
+                                                                    <span className="text-[9px] text-rose-300/60">총 5명 집중 관리</span>
+                                                                </div>
+                                                                <ArrowRight className="w-3 h-3 text-indigo-400" />
+                                                                <span className="text-[11px] font-bold">반별 1~2명 배정</span>
+                                                            </div>
+                                                            <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
+                                                                <div className="flex flex-col gap-0.5">
+                                                                    <span className="text-[11px]">정서 케어 (-1점 5명)</span>
+                                                                    <span className="text-[9px] text-blue-300/60">심리적 배려 대상</span>
+                                                                </div>
+                                                                <ArrowRight className="w-3 h-3 text-indigo-400" />
+                                                                <span className="text-[11px] font-bold">반별 1~2명 안배</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="pt-4 border-t border-white/10 text-center">
+                                                        <p className="text-[11px] text-indigo-200 leading-relaxed">
+                                                            알고리즘은 숫자가 딱 떨어지지 않더라도 <br />
+                                                            <span className="text-white font-bold underline underline-offset-4 decoration-indigo-400">누적 점수의 격차를 최소화</span>하여 가장 평등한 반을 완성합니다.
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -189,65 +275,88 @@ export default function GuidePage() {
                             </div>
 
                             <div className="space-y-12">
-                                <div className="grid gap-8 md:grid-cols-3">
+                                <div className="grid gap-8 md:grid-cols-4">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-2 font-bold text-sm text-foreground">
                                             <Badge className="bg-slate-200 text-slate-700 hover:bg-slate-200">1-1</Badge>
                                             학급 수 설정
                                         </div>
-                                        <p className="text-xs text-muted-foreground leading-relaxed">
-                                            화면 상단의 <strong>[편성할 학급 수]</strong> 입력 칸에 숫자를 넣으세요. 설정된 학급 수에 맞춰 모든 데이터 그리드가 자동 정렬됩니다.
+                                        <p className="text-xs text-muted-foreground leading-relaxed break-keep">
+                                            상단 <strong>[편성할 학급 수]</strong> 칸에 숫자를 넣으세요. 설정된 학급 수에 맞춰 모든 데이터 그리드가 자동 정렬됩니다.
                                         </p>
                                     </div>
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-2 font-bold text-sm text-foreground">
                                             <Badge className="bg-slate-200 text-slate-700 hover:bg-slate-200">1-2</Badge>
-                                            엑셀 양식 선택
+                                            엑셀 업로드
                                         </div>
-                                        <p className="text-xs text-muted-foreground leading-relaxed">
-                                            <strong>양식 A(기본):</strong> '직전 학년도' 정보를 넣어 새로운 반을 편성할 때 사용합니다.<br />
-                                            <strong>양식 B(기배정):</strong> '이미 결정된 반' 정보를 넣어 적절성을 검토하거나 조정할 때 사용합니다.
+                                        <p className="text-xs text-muted-foreground leading-relaxed break-keep">
+                                            <strong>[엑셀 파일 업로드]</strong> 버튼을 눌러 준비된 명렬표를 선택하거나, 엑셀 데이터를 드래그하여 복사/붙여넣기(Ctrl+V)하세요.
                                         </p>
                                     </div>
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-2 font-bold text-sm text-foreground">
                                             <Badge className="bg-slate-200 text-slate-700 hover:bg-slate-200">1-3</Badge>
-                                            복사 및 붙여넣기
+                                            데이터 검토
                                         </div>
-                                        <p className="text-xs text-muted-foreground leading-relaxed">
-                                            엑셀에서 데이터를 드래그하여 복사한 뒤, Classzle 화면의 빈 그리드 첫 번째 셀을 클릭하고 <strong>Ctrl+V</strong>를 누르세요.
+                                        <p className="text-xs text-muted-foreground leading-relaxed break-keep">
+                                            그리드에 빨간색 칸이 있다면 데이터 형식이 틀린 것입니다. 엑셀 수정 후 <strong>[데이터 초기화]</strong>를 누르고 다시 시작하세요.
+                                        </p>
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className="flex items-center gap-2 font-bold text-sm text-indigo-600">
+                                            <Badge className="bg-indigo-100 text-indigo-700 hover:bg-indigo-100">1-4</Badge>
+                                            세부 정보 수정
+                                        </div>
+                                        <p className="text-xs text-muted-foreground leading-relaxed break-keep">
+                                            명단 우측의 <strong>[수정]</strong> 버튼을 눌러 생활지도 점수나 유형을 개별적으로 미세하게 조정할 수 있습니다.
                                         </p>
                                     </div>
                                 </div>
 
-                                <Card className="border-primary/20 bg-primary/5 shadow-none overflow-hidden">
+                                <Card className="border-indigo-100 bg-white shadow-sm overflow-hidden">
                                     <CardContent className="p-0">
                                         <div className="grid md:grid-cols-2">
-                                            <div className="p-6 border-r border-primary/10 space-y-4">
-                                                <h4 className="font-bold text-sm flex items-center gap-2">
-                                                    <FileSpreadsheet className="w-4 h-4 text-primary" />
-                                                    데이터 인식 요령
+                                            <div className="p-8 space-y-6">
+                                                <h4 className="font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">
+                                                    개별 학생 상세 수정 (Step 1-4)
                                                 </h4>
-                                                <ul className="space-y-3 text-xs">
-                                                    <li className="flex gap-2">
-                                                        <span className="text-primary font-bold whitespace-nowrap shrink-0">성적:</span>
-                                                        <span>점수와 석차를 모두 인식합니다. (알고리즘이 자동으로 격차 분석)</span>
-                                                    </li>
-                                                    <li className="flex gap-2">
-                                                        <span className="text-primary font-bold whitespace-nowrap shrink-0">생년월일(선택):</span>
-                                                        <span>비워두셔도 무방합니다.</span>
-                                                    </li>
-
-                                                </ul>
+                                                <div className="space-y-4">
+                                                    <p className="text-xs text-slate-600 leading-relaxed break-keep">
+                                                        엑셀에서 일괄 입력하지 않았더라도 걱정하지 마세요. 작업 도중 언제든 [기초 자료 설정] 탭으로 돌아와 학생의 상세 정보를 수정할 수 있습니다.
+                                                    </p>
+                                                    <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-4">
+                                                        <div className="flex items-center gap-3">
+                                                            <div className="w-8 h-8 rounded bg-white border border-slate-200 flex items-center justify-center text-xs font-bold text-indigo-600 shadow-sm">
+                                                                Tip
+                                                            </div>
+                                                            <div className="text-[11px] text-slate-700 font-medium">
+                                                                [수정] 버튼 클릭 시 나타나는 대화창 구성:
+                                                            </div>
+                                                        </div>
+                                                        <ul className="text-[11px] space-y-2 text-slate-500 pl-4 list-disc">
+                                                            <li><strong className="text-slate-800">생활지도 점수</strong>: -2부터 +3까지 숫자 선택</li>
+                                                            <li><strong className="text-slate-800">생활지도 유형</strong>: 리더형, 행동형, 정서형 중 택 1</li>
+                                                            <li><strong className="text-slate-800">전출 예정 체크</strong>: 명단 제외 여부 바로 설정 가능</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div className="p-6 bg-white/40 space-y-4">
-                                                <h4 className="font-bold text-sm flex items-center gap-2">
-                                                    <HelpCircle className="w-4 h-4 text-slate-400" />
-                                                    잘못 입력했을 때는?
-                                                </h4>
-                                                <p className="text-xs text-muted-foreground leading-relaxed">
-                                                    데이터 그리드 위의 <strong className="text-foreground">[데이터 초기화]</strong> 버튼을 누르면 입력된 모든 내용이 사라집니다. 그 후 수정이 완료된 엑셀 데이터를 다시 붙여넣으세요.
-                                                </p>
+                                            <div className="p-8 bg-indigo-50/30 flex flex-col justify-start">
+                                                <div className="space-y-4">
+                                                    <h4 className="font-bold text-indigo-900 text-sm flex items-center gap-2">
+                                                        <CheckCircle2 className="w-4 h-4 text-indigo-600" />
+                                                        알고리즘의 현명한 판단
+                                                    </h4>
+                                                    <p className="text-xs text-indigo-800/80 leading-relaxed break-keep">
+                                                        성적 데이터가 <strong>석차(1, 2, 3...)</strong>인지 <strong>총점(98.5, 87.2...)</strong>인지 Classzle은 스스로 판단합니다. 선생님은 데이터의 형식에 얽매이지 않고 준비된 자료를 그대로 활용하시면 됩니다.
+                                                    </p>
+                                                    <div className="pt-4 border-t border-indigo-100">
+                                                        <p className="text-[10px] text-indigo-400">
+                                                            * 엑셀 붙여넣기 시 <strong>Ctrl + Shift + V</strong> (서식 없이 붙여넣기)를 사용하면 더욱 안정적입니다.
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </CardContent>
@@ -658,9 +767,9 @@ export default function GuidePage() {
                             </div>
                         </section>
 
-                    </div>
-                </main>
-            </div>
-        </div>
+                    </div >
+                </main >
+            </div >
+        </div >
     );
 }
